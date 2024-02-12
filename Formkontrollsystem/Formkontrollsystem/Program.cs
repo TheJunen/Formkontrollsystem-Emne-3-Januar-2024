@@ -19,14 +19,31 @@
                 Console.WriteLine(form.PrintUtAreal());
             }
 
+            //ListeAv
+
             Console.WriteLine("Sortert ListeAvFormer ifølge størrelse på arealverdi:");
 
-            List<Form> sortedList = ListeAvFormer.OrderBy(form => form.BeregnAreal()).ToList();
-            foreach (Form form2 in sortedList)
+            List<Form> sortertListe = ListeAvFormer.OrderBy(form => form.BeregnAreal()).ToList();
+            double TotalArealAvAlleFormer = 0;
+            foreach (Form form2 in sortertListe)
             {
-                form2.BeregnAreal();
                 Console.WriteLine(form2.PrintUtAreal());
+                TotalArealAvAlleFormer += form2.BeregnAreal();
             }
+            Console.WriteLine($"Totalt areal av alle former: {TotalArealAvAlleFormer}");
+
+            var SorterBortFarger = sortertListe.Where(x => x.Farge != "blå" && x.Farge != "svart");
+
+            Console.WriteLine($"Sortert bort former med farge blå og svart");
+            foreach (Form form3 in SorterBortFarger)
+            {
+                Console.WriteLine(form3.PrintUtAreal());
+            }
+            //foreach (Form TotalAreal in heio)
+            //{
+            //    Console.WriteLine(TotalAreal);
+            //}
+                    ;
             ////var listeteller = ListeAvFormer.Count();
 
             ////Console.WriteLine(listeteller);

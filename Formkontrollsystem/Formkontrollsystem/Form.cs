@@ -9,12 +9,12 @@ namespace Formkontrollsystem
     abstract class Form
     {   
         protected string Navn;
-        protected string Farge;
+        internal string Farge;
 
         internal abstract double BeregnAreal();
 
         internal abstract string PrintUtAreal();
 
-
+        //internal abstract double 
     }
 }
